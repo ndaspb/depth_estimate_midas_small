@@ -1,8 +1,6 @@
 import time
 import cv2
 import numpy as np
-# import urllib.request
-# import os.path
 
 from tflite_runtime.interpreter import Interpreter
 
@@ -19,11 +17,6 @@ class midasDepthEstimator():
 
 	def initializeModel(self):
 		modelPath = 'midas_lite.tflite'
-
-		# Download model fif not available already
-		#if not os.path.isfile(modelPath):
-		 #	url = 'https://tfhub.dev/intel/lite-model/midas/v2_1_small/1/lite/1?lite-format=tflite'
-		 #	urllib.request.urlretrieve(url, modelPath)
 
 		self.interpreter = Interpreter(model_path=modelPath)
 		self.interpreter.allocate_tensors()
